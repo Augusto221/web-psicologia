@@ -5,125 +5,348 @@
     box-sizing: border-box;
   }
   
-  /* Variables de color */
-  :root {
-    --primary: #5f8f8b;
-    --secondary: #e8f1f0;
-    --text-dark: #2f3e3d;
-    --text-light: #6b7c7b;
-    --white: #ffffff;
+/* Variables de color */
+:root {
+  --primary: #5f8f8b;
+  --secondary: #e8f1f0;
+  --text-dark: #2f3e3d;
+  --text-light: #6b7c7b;
+  --white: #ffffff;
+}
+
+/* Base */
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-dark);
+  line-height: 1.6;
+  background-color: var(--white);
+}
+
+/* =========================
+   HERO HOME
+========================= */
+.hero {
+  position: relative;
+  background-image: url("../Imagenes/familia.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  max-width: 600px;
+  margin: 0 auto 32px;
+}
+
+/* =========================
+   BOTONES
+========================= */
+.btn-primary {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 14px 28px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #4e7c78;
+}
+
+.btn-primary span {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.btn-primary:hover span {
+  transform: translateX(6px);
+}
+
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 3px;
+  background-color: #4a5a59;
+  transition: width 0.35s ease;
+}
+
+.btn-primary:hover::after {
+  width: 100%;
+}
+
+/* Botón secundario */
+.btn-secondary {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 24px;
+  border-radius: 6px;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+/* =========================
+   NAVEGACIÓN (SIN LOGO)
+========================= */
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  padding: 20px;
+  background-color: var(--white);
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+}
+
+.nav a:hover {
+  background-color: var(--secondary);
+  color: var(--primary);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+.nav a.active {
+  background-color: var(--secondary);
+  color: var(--primary);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+/* =========================
+   SECCIONES GENERALES
+========================= */
+.section {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.section-light {
+  background-color: var(--secondary);
+}
+
+.section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+/* Texto general */
+.section-text {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--text-light);
+}
+
+/* =========================
+   CARDS
+========================= */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background-color: var(--white);
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+  margin-bottom: 12px;
+  color: var(--primary);
+}
+
+/* Links elegantes en títulos */
+.card-title-link {
+  text-decoration: none;
+  color: var(--primary);
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.card-title-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.25s ease;
+}
+
+.card-title-link:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   SERVICIOS
+========================= */
+.services-list {
+  max-width: 400px;
+  margin: 0 auto;
+  list-style: none;
+}
+
+.services-list li {
+  padding: 10px 0;
+  text-align: center;
+}
+
+/* =========================
+   LISTAS TERAPÉUTICAS
+========================= */
+.therapy-list {
+  max-width: 700px;
+  margin: 0 auto;
+  list-style: none;
+}
+
+.therapy-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid #e2eaea;
+  color: var(--text-dark);
+}
+
+/* =========================
+   BLOQUE DE ENFOQUE
+========================= */
+.focus-box {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--white);
+  padding: 30px;
+  border-left: 6px solid var(--primary);
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+}
+
+.focus-box p {
+  color: var(--text-light);
+}
+
+/* =========================
+   HERO PÁGINAS INTERNAS
+========================= */
+.hero-internal {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 90px 20px;
+  text-align: center;
+}
+
+.hero-internal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-internal .hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero-internal h1 {
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.hero-internal p {
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+/* Imágenes hero internas */
+.hero-ninos {
+  background-image: url("../Imagenes/ninos.jpg");
+}
+
+.hero-abuelos {
+  background-image: url("../Imagenes/abuelos.jpg");
+}
+
+/* =========================
+   CONTACTO
+========================= */
+.section-contact {
+  text-align: center;
+  padding-top: 30px;
+}
+
+.section-contact p {
+  margin-bottom: 30px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+  background-color: var(--primary);
+  color: var(--white);
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 600px) {
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
   }
-  
-  /* Base */
-  body {
-    font-family: 'Inter', sans-serif;
-    color: var(--text-dark);
-    line-height: 1.6;
-    background-color: var(--white);
-  }
-  
-  /* Hero */
-  .hero {
-    background-color: var(--secondary);
-    padding: 80px 20px;
-    text-align: center;
-  }
-  
-  .hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 16px;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.1rem;
-    color: var(--text-light);
-    max-width: 600px;
-    margin: 0 auto 32px;
-  }
-  
-  /* Botón */
-  .btn-primary {
-    display: inline-block;
-    background-color: var(--primary);
-    color: var(--white);
-    padding: 14px 28px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn-primary:hover {
-    background-color: #4e7c78;
-  }
-  
-  /* Secciones */
-  .section {
-    padding: 70px 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  
-  .section-light {
-    background-color: var(--secondary);
-  }
-  
-  .section h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 40px;
-  }
-  
-  /* Cards */
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 24px;
-  }
-  
-  .card {
-    background-color: var(--white);
-    padding: 24px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  }
-  
-  .card h3 {
-    margin-bottom: 12px;
-    color: var(--primary);
-  }
-  
-  /* Texto general */
-  .section-text {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-    color: var(--text-light);
-  }
-  
-  /* Servicios */
-  .services-list {
-    max-width: 400px;
-    margin: 0 auto;
-    list-style: none;
-  }
-  
-  .services-list li {
-    padding: 10px 0;
-    text-align: center;
-  }
-  
-  /* Contacto */
-  .section-contact {
-    text-align: center;
-  }
-  
-  /* Footer */
-  .footer {
-    background-color: var(--primary);
-    color: var(--white);
-    text-align: center;
-    padding: 20px;
-    font-size: 0.9rem;
-  }
-  
+}
